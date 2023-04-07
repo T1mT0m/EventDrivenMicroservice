@@ -4,4 +4,6 @@
 **/.factorypath
 **/.project
 **/mvnw
-**/mvnw.exe
+**/mvnw.cmd
+**/*.tmp
+**/*.md
