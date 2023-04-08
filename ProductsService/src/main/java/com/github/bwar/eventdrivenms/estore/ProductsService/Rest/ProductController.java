@@ -1,5 +1,7 @@
 package com.github.bwar.eventdrivenms.estore.ProductsService.Rest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/products")
 public class ProductController {
 	
+	@Autowired
+	private Environment env;
+	
 	@PostMapping
 	public String createProduct() {
 		return "Http POST handler";
@@ -18,7 +23,7 @@ public class ProductController {
 	
 	@GetMapping
 	public String getProduct() {
-		return "Http GET handler";
+		return "Http GET handler " + env.getProperty("local.server.port");
 	}
 	
 	@PutMapping
